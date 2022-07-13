@@ -157,6 +157,7 @@ set(models
 	iris_opt_flow_mockup
 	iris_rplidar
 	iris_vision
+	logixair_orca
 	nxp_cupcar
 	omnicopter
 	plane

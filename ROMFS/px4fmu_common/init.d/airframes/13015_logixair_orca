@@ -1,0 +1,145 @@
+#!/bin/sh
+#
+# @name Logixar Orca
+# @type Standard VTOL Hexa
+# @class VTOL
+#
+# @output MAIN1 Front right motor bottom
+# @output MAIN2 Front right motor top
+# @output MAIN3 Front left motor bottom
+# @output MAIN4 Front left motor top
+# @output MAIN5 Back motor bottom
+# @output MAIN6 Back motor top
+# @output MAIN7 Middle motor bottom
+# @output MAIN8 Middle motor top
+# @output AUX1 Tilt servo
+# @output AUX2 Elevon 1
+# @output AUX3 Elevon 2
+# @output AUX4 Gear
+#
+# @board px4_fmu-v2 exclude
+# @board bitcraze_crazyflie exclude
+#
+. ${R}etc/init.d/rc.vtol_defaults
+
+#param set-default SYS_CTRL_ALLOC 1
+param set-default CA_AIRFRAME 2
+
+param set-default CA_ROTOR_COUNT 8
+
+param set-default CA_ROTOR0_PX 0.01
+param set-default CA_ROTOR0_PY 0.6
+param set-default CA_ROTOR0_KM 0.05
+param set-default CA_ROTOR0_CT 4.00
+
+param set-default CA_ROTOR1_PX 0.01
+param set-default CA_ROTOR1_PY -0.6
+param set-default CA_ROTOR1_KM -0.05
+param set-default CA_ROTOR1_CT 4.00
+
+param set-default CA_ROTOR2_PX 0.8
+param set-default CA_ROTOR2_PY -0.6
+param set-default CA_ROTOR2_KM 0.05
+param set-default CA_ROTOR2_CT 4.00
+
+param set-default CA_ROTOR3_PX -0.8
+param set-default CA_ROTOR3_PY 0.6
+param set-default CA_ROTOR3_KM -0.05
+param set-default CA_ROTOR3_CT 4.00
+
+param set-default CA_ROTOR4_PX 0.8
+param set-default CA_ROTOR4_PY 0.6
+param set-default CA_ROTOR4_KM -0.05
+param set-default CA_ROTOR4_CT 4.00
+
+param set-default CA_ROTOR5_PX -0.8
+param set-default CA_ROTOR5_PY -0.6
+param set-default CA_ROTOR5_KM 0.05
+param set-default CA_ROTOR5_CT 4.00
+
+param set-default CA_ROTOR6_AX 1.0
+param set-default CA_ROTOR6_AZ 0.0
+param set-default CA_ROTOR6_PX 0.2
+param set-default CA_ROTOR6_PY -1.2
+param set-default CA_ROTOR6_CT 4.00
+
+param set-default CA_ROTOR7_AX 1.0
+param set-default CA_ROTOR7_AZ 0.0
+param set-default CA_ROTOR7_PX 0.2
+param set-default CA_ROTOR7_PY 1.2
+param set-default CA_ROTOR7_CT 4.00
+
+param set-default CA_SV_CS_COUNT 4
+param set-default CA_SV_CS0_TYPE 1
+param set-default CA_SV_CS0_TRQ_R -0.5
+param set-default CA_SV_CS1_TYPE 2
+param set-default CA_SV_CS1_TRQ_R 0.5
+param set-default CA_SV_CS2_TYPE 3
+param set-default CA_SV_CS2_TRQ_P 0.5
+param set-default CA_SV_CS3_TYPE 3
+param set-default CA_SV_CS3_TRQ_P 0.5
+
+
+param set-default PWM_MAIN_FUNC1 101
+param set-default PWM_MAIN_FUNC2 102
+param set-default PWM_MAIN_FUNC3 103
+param set-default PWM_MAIN_FUNC4 104
+param set-default PWM_MAIN_FUNC5 105
+param set-default PWM_MAIN_FUNC6 106
+param set-default PWM_MAIN_FUNC7 107
+param set-default PWM_MAIN_FUNC8 108
+param set-default PWM_MAIN_FUNC9 201
+param set-default PWM_MAIN_FUNC10 202
+param set-default PWM_MAIN_FUNC11 203
+param set-default PWM_MAIN_FUNC12 204
+
+
+
+param set-default FW_AIRSPD_MAX 30
+param set-default FW_AIRSPD_MIN 21
+param set-default FW_AIRSPD_STALL 18
+param set-default FW_AIRSPD_TRIM 25
+param set-default FW_L1_PERIOD 12
+param set-default FW_L1_PERIOD 12
+param set-default FW_MAN_P_MAX 30
+param set-default FW_PR_FF 0.2
+param set-default FW_PR_P 0.9
+param set-default FW_PSP_OFF 2
+param set-default FW_P_LIM_MAX 32
+param set-default FW_P_LIM_MIN -15
+param set-default FW_RR_FF 0.1
+param set-default FW_RR_P 0.3
+param set-default FW_THR_CRUISE 0.75
+param set-default FW_THR_MAX 0.9
+param set-default FW_THR_MIN 0.0
+param set-default FW_T_CLMB_MAX 8
+param set-default FW_T_SINK_MAX 2.7
+param set-default FW_T_SINK_MIN 2.2
+
+param set-default MC_ROLLRATE_P 0.3
+param set-default MC_YAW_P 1.6
+
+param set-default MIS_TAKEOFF_ALT 30
+
+param set-default MPC_ACC_HOR_MAX 2
+param set-default MPC_XY_P 0.8
+param set-default MPC_XY_VEL_P_ACC 3
+param set-default MPC_XY_VEL_I_ACC 4
+param set-default MPC_XY_VEL_D_ACC 0.1
+
+param set-default NAV_ACC_RAD 5
+param set-default NAV_LOITER_RAD 200
+
+param set-default VT_ARSP_BLEND 18
+param set-default VT_ARSP_TRANS 21
+param set-default VT_FW_ALT_ERR 10.0
+param set-default VT_FWD_THRUST_EN 4
+param set-default VT_F_TRANS_THR 1.0
+param set-default VT_F_TRANS_DUR 5
+param set-default VT_MOT_ID 123456
+param set-default VT_FW_MOT_OFFID 123456
+param set-default VT_B_TRANS_DUR 10
+param set-default VT_TYPE 2
+
+set MIXER logixair_orca
+set MIXER_AUX logixair_orca
