@@ -101,6 +101,7 @@ if(gazebo_FOUND)
 		tailsitter
 		techpod
 		tiltrotor
+		OrcaXL
 		typhoon_h480
 		uuv_bluerov2_heavy
 		uuv_hippocampus

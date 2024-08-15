@@ -133,6 +133,10 @@ if(CONFIG_MODULES_VTOL_ATT_CONTROL)
 		13014_vtol_babyshark
 		13030_generic_vtol_quad_tiltrotor
 		13200_generic_vtol_tailsitter
+
+		# Custom VTOL
+		25600_ORCAXL
+
 	)
 endif()
 
